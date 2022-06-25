@@ -15,6 +15,12 @@ int	is_numeric(char c)
 	return (c >= '0' && c <= '9');
 }
 
+int	ft_isspace(char c)
+{
+	return(c == ' ' || c == '\t' || c == '\n'
+		|| c == '\v' || c == '\f' || c == '\r');
+}
+
 long long int	ft_atoi(char *str)
 {
 	long long int	n;
@@ -22,8 +28,7 @@ long long int	ft_atoi(char *str)
 
 	s = 1;
 	n = 0;
-	while (*str == ' ' || *str == '\t' || *str == '\n'
-		|| *str == '\v' || *str == '\f' || *str == '\r')
+	while (ft_isspace(*str))
 		str++;
 	if (*str == '-' || *str == '+')
 	{
