@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:04:44 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/25 22:57:01 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 00:56:54 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ Input:
 Output:
 	- t_dict *dict : address of the new dict element
 * ************************************************************************** */
-t_dict *dict_create_elem(char *str, unsigned int n)
+t_dict	*dict_create_elem(char *str, unsigned int n)
 {
-	t_dict *dict;
+	t_dict	*dict;
 
 	dict = malloc(sizeof(t_dict));
 	if (!dict)
@@ -49,9 +49,9 @@ Output:
 	else (fail)
 		void pointer
 * ************************************************************************** */
-t_dict *dict_append_elem(t_dict *dict, char *str, unsigned int n)
+t_dict	*dict_append_elem(t_dict *dict, char *str, unsigned int n)
 {
-	t_dict *current;
+	t_dict	*current;
 
 	current = dict;
 	while (current->next)
@@ -74,9 +74,10 @@ Return:
 	else
 	 - void pointer
 * ************************************************************************** */
-t_dict *dict_find_nbr(t_dict *dict, unsigned int to_find)
+t_dict	*dict_find_nbr(t_dict *dict, unsigned int to_find)
 {
-	t_dict *current;
+	t_dict	*current;
+
 	current = dict;
 	if (!dict)
 		return (0);
@@ -119,7 +120,6 @@ void	dict_sort(t_dict *dict)
 			current->words = current->next->words;
 			current->next->n = tmp_n;
 			current->next->words = tmp_w;
-			
 			current = dict;
 		}
 		else
