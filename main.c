@@ -16,9 +16,9 @@ int	main(int argc, char **argv)
 		return (0);
 	else if (argc == 2)
 		// run the code to conver argc 1 to a number
-	else
+	//else
 		// run code to parse the dict on argc 2 and num on arg 3
-	
+	return (0);
 
 }
 
