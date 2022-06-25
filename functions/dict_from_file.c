@@ -6,11 +6,11 @@
 /*   By: matwinte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 20:37:02 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/25 21:46:52 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/25 23:02:56 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../include/header.h"
 
 t_dict	*dict_from_file(char *filename)
 {
@@ -33,11 +33,4 @@ t_dict	*dict_from_file(char *filename)
 		str = line_to_end(str) + 1;	
 	}
 	return (dict);
-}
-
-int main (void)
-{
-	t_dict *dict;
-	dict = dict_from_file("numbers.dict");
-	
 }
