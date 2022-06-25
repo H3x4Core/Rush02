@@ -52,12 +52,16 @@ int	line_to_num(char *str)
 
 char *line_to_words(char *str)
 {
-	char	words;
-	while (*str)
-	{
-		//something something
+	char	*words;
+	int		i;
+
+	while (*str != ':')
 		str++;
-	}
+	while (ft_isspace(*str))
+		str++;
+	i = 0;
+	while (str[i] != '\n')
+		i++;
 	return (words);
 }
 
