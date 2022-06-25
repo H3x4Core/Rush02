@@ -3,10 +3,10 @@
 /*
 Create a new element
 Input:
-	n = number from parsed file
-	str = words for number from parsed file
+	- char *str : number from parsed file
+	- unsigned int n : words for number from parsed file
 Output:
-	address of the new dict element
+	- t_dict *dict : address of the new dict element
 */
 t_dict *dict_create_elem(char *str, unsigned int n)
 {
@@ -23,8 +23,28 @@ t_dict *dict_create_elem(char *str, unsigned int n)
 
 /*
 Append an element to the dictionary
-TODO
+Goes to the last element of the list and call dict_create_elem with the provided parameters.
+Input:
+	- char *str : number from parsed file
+	- unsigned int n : words for number from parsed file
+Output:
+	if (success)
+		t_dict *current->next : address of the newly created element
+	else (fail)
+		void pointer
 */
+t_dict *dict_append_elem(t_dict *dict, char *str, unsigned int n)
+{
+	t_dict *current;
+
+	current = dict;
+	while (current->next)
+		current = current->next;
+	current->next = dict_create_elem(str, n);
+	if (!current->next)
+		return (0);
+	return (current->next);
+}
 
 /*
 Find the correct element in the dict
@@ -64,9 +84,9 @@ Return:
 */
 void	dict_sort(t_dict *dict)
 {
-	t_dict	*current;
-	void *tmp_n;
-	void *tmp_w;
+	t_dict			*current;
+	unsigned int	tmp_n;
+	char			*tmp_w;
 
 	current = dict;
 	if (!current)
@@ -88,19 +108,54 @@ void	dict_sort(t_dict *dict)
 			current = current->next;
 	}
 }
-
+/********************** DEBUG ***********************/
 #include <stdio.h>
+
+void debug_print_dict(t_dict *dict, char *str)
+{
+	t_dict			*current;
+
+	current = dict;
+	if (!current)
+		return ;
+	while (current->next)
+	{
+		printf("-------------%s--------------\n", str);
+		printf("current->n: %u\ncurrent->words: %s\ncurrent->next: %p\n", current->n, current->words, current->next);
+		current = current->next;
+	}
+	printf("-------------%s--------------\n", str);
+		printf("current->n: %u\ncurrent->words: %s\ncurrent->next: %p\n", current->n, current->words, current->next);
+}
+
+
 int main(void)
 {
-	unsigned int n = 10;
-	char *str = malloc(sizeof("dix"));
+	unsigned int n0 = 10;
+	unsigned int n1 = 11;
+	unsigned int n2 = 12;
+	char *str0 = malloc(sizeof("dix"));
+	char *str1 = malloc(sizeof("onze"));
+	char *str2 = malloc(sizeof("douze"));
+	
 	t_dict *dict;
+	t_dict *next;
 
-	if (!str)
+	if (!str1 || !str1 || !str2)
 		return (0);
-	str = "dix";
-	printf("str: %s\n", str);
-	dict = dict_create_elem(str, n);
+	str0 = "dix";
+	str1 = "onze";
+	str2 = "douze";
+	printf("str0: %s\n", str0);
+	printf("str1: %s\n", str1);
+	printf("str2: %s\n", str2);
+	dict = dict_create_elem(str0, n0);
+	next = dict;
 	printf("dict->n: %u\ndict->words: %s\ndict->next: %p\n", dict->n, dict->words, dict->next);
+	next = dict_append_elem(dict, str2, n2);
+	next = dict_append_elem(next, str1, n1);
+	debug_print_dict(dict, "Appened");
+	dict_sort(dict);
+	debug_print_dict(dict, "Sorted");
 	return (0);
 }
