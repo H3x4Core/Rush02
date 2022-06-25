@@ -37,16 +37,17 @@ int	line_to_num(char *str)
 
 char *line_to_words(char *str)
 {
-	char	words;
+	char	*words;
+	int		i;
+
 	while (*str != ':')
 		str++;
 	while (ft_isspace(*str))
 		str++;
-	while (*str)
-	{
-		//something something
-		str++;
-	}
+	i = 0;
+	while (str[i] != '\n')
+		i++;
+	
 	return (words);
 }
 
