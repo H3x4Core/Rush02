@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dict.c                                             :+:      :+:    :+:   */
+/*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matwinte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 14:23:19 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/25 15:31:23 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 01:11:18 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>	// open
-#include <unistd.h> // close, read, write
-#include <stdlib.h>	// malloc
-#define BUF_SIZE 4096
-
-#include <stdio.h> //DEBUGGGGG
+#include "header.h"
 
 char	*read_file(char *filename)
 {
@@ -40,6 +35,7 @@ char	*read_file(char *filename)
 	return (test);
 }
 /*
+#include <stdio.h> //DEBUGGGGG
 int	main(void)
 {
 	char	*filename = "../dictionaries/numbers.dict";
