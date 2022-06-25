@@ -22,14 +22,22 @@ char	*read_file(char *filename)
 	char	dict_str[BUF_SIZE + 1];
 	int		fd;
 	int		len;
-	
+	int		i;
+	char	*test;
+
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		return (-1);
+		return ("coucou");
+	test = malloc(100000);
 	len = read(fd, dict_str, BUF_SIZE);
-	close_file(fd);
-	printf("%s", dict_str);
-	return (dict_str);
+	close(fd);
+	i = 0;
+	while (i < len)
+	{
+		test[i] = dict_str[i];
+		i++;
+	}
+	return (test);
 }
 /*
 int	main(void)

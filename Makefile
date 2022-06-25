@@ -1,6 +1,6 @@
 NAME = main
 
-SRC = functions/*.c
+SRC = main.c functions/*.c
 
 HDR = include/
 
