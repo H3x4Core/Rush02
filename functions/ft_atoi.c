@@ -30,9 +30,8 @@ long long int	ft_atoi(char *str)
 		s *= -1;
 		str++;
 	}
-	if (*str == '+')
+	if (*str == '+' && s > 0)
 	{
-		s *= -1;
 		str++;
 	}
 	if (!is_numeric(*str))
@@ -48,15 +47,17 @@ long long int	ft_atoi(char *str)
 	return (n);
 }
 
-
+/*
+//gcc ft_atoi.c && ./a.out -234 13 +0 +123 -0 123.4 ++123 -+123 +-12 -13b23 -b12
 #include <stdlib.h>
 #include <stdio.h>
 int main(int ac, char **av)
 {
 	ac -= 1;
 	av += 1;
-	for (int i = 1; i < ac; i++)
-		printf("str:%s	atoi:%d	ft_atoi:%lu\n", av[i], atoi(av[i]), ft_atoi(av[i]));
+	for (int i = 0; i < ac; i++)
+		printf("atoi:%d		ft_atoi:%lld\n", atoi(av[i]), ft_atoi(av[i]));
 	// printf("%s:	%d", av[ac], ft_atoi("-1112wq32"));
 	return (0);
 }
+*?
