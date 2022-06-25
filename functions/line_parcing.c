@@ -14,12 +14,27 @@
 
 int	line_is_valid(char *str)
 {
-	while (*str)
+	if (ft_is_numeric(*str))
 	{
-		//something something
-		str++;
+		while (ft_is_numeric(*str))
+			str++;
+		while (*str == ' ')
+			str++;
+		if (*str == ':')
+		{
+			str++;
+			while (*str == ' ')
+				str++;
+			if (ft_is_printable(*str))
+			{
+				while (ft_is_printable(*str))
+					str++;
+				if (*str == '\n')
+					return (1);
+			}
+		}	
 	}
-	return (1);
+	return (0);
 }
 
 int	line_to_num(char *str)
@@ -38,10 +53,6 @@ int	line_to_num(char *str)
 char *line_to_words(char *str)
 {
 	char	words;
-	while (*str != ':')
-		str++;
-	while (ft_isspace(*str))
-		str++;
 	while (*str)
 	{
 		//something something
@@ -60,8 +71,5 @@ int main(int ac, char **av)
 
 		entry1.n = line_to_num(av[i]);
 		entry1.words = line_to_words(av[i]);
-		
-		printf("str:%d\nn:%d\nwords:%s\n\n", av[i], entry1.n, entry1.words);
 	}
-
 }

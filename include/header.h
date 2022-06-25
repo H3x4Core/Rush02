@@ -15,6 +15,7 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 # define ERROR = -1
 # define DICT_ERROR = -2
@@ -35,7 +36,7 @@ typedef struct s_dict
 {
 	unsigned int	n;
 	char 			*words;
-	t_dict			*next;
+	struct s_dict	*next;
 
 }				t_dict;
 
