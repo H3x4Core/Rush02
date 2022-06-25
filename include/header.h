@@ -21,6 +21,7 @@
 # define DICT_ERROR = -2
 # define ERROR_MSG = "Error\n"
 # define DIC_ERROR_MSG = "Dict Error\n"
+# define BUF_SIZE 4096
 
 /*stors the input number split into goups of 3 dgits*/
 typedef struct s_num
@@ -49,6 +50,7 @@ int				*nums_as_ints(t_num nums, int *int_array);
 void			split_number(int nbr, int *array, int *i);
 int				ft_is_printable(char c);
 int				line_is_valid(char *str);
+<<<<<<< HEAD
 char			*line_to_end(char *str);
 int				line_to_num(char *str);
 char 			*line_to_words(char *str);
@@ -59,5 +61,12 @@ t_dict			*dict_append_elem(t_dict *dict, char *str, unsigned int n);
 t_dict			*dict_find_nbr(t_dict *dict, unsigned int to_find);
 void			dict_sort(t_dict *dict);
 void			dict_free(t_dict *current);
+=======
+int				line_to_num(char *str);
+char 			*line_to_words(char *str);
+char			*read_file(char *filename);
+int	ft_strlen(char *str);
+char    *line_to_end(char *str);
+>>>>>>> d26384d (can now read from entry line)
 
 #endif
