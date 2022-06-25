@@ -12,9 +12,9 @@
 
 #include "../include/header.h"
 
-char	**humanize(int	*array, t_dict *dict_start)
+char	**humanize(unsigned int	*array, t_dict *dict_start)
 {
-	int		i;
+	unsigned int	i;
 	char	**str_array;
 	t_dict	*dict_list;
 
@@ -33,7 +33,7 @@ char	**humanize(int	*array, t_dict *dict_start)
 	}
 	return (str_array);
 }
-
+/*
 int main(void)
 {
 	t_dict	elem1;
@@ -96,4 +96,4 @@ int main(void)
 		printf("%s\n", str_array[loop]);
 	}
 	return (0);
-}
+}*/

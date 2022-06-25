@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-int	line_is_valid(char *str, int start, int end)
+int	line_is_valid(char *str)
 {
 	char	*oldpos;
 
