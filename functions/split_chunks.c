@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/header.h"
+#include "header.h"
 
 t_num	split_chunks(long long int num)
 {
