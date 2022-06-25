@@ -26,6 +26,8 @@ int	line_is_valid(char *str)
 	if (*str != ':')
 		return (0);
 	str++;
+	while (ft_isspace(*str))
+		str++;
 	if (ft_is_printable(*str))
 		return (1);
 	return (0);
