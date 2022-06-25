@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:25:14 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/25 21:21:16 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/25 21:25:51 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int				ft_is_printable(char c);
 int				line_is_valid(char *str);
 int				line_to_num(char *str);
 char			*line_to_words(char *str);
-
+char			*read_file(char *filename);
 
 /* -- dict_tools --*/
 
@@ -62,12 +62,5 @@ void			dict_sort(t_dict *dict);
 void			dict_free(t_dict *current);
 
 t_dict			*dict_from_file(char *filename);
-
-/* -- read_file --*/
-
-char			*read_file(char *filename);
-
-/* -- utils --*/
-int				ft_strlen(char *str);
 
 #endif
