@@ -22,6 +22,7 @@ t_num	split_chunks(long long int num)
 	return (n);
 }
 
+/*
 #include <stdio.h>
 int main(int ac, char **av)
 {
@@ -35,3 +36,4 @@ int main(int ac, char **av)
 	}
 	return (0);
 }
+*/
