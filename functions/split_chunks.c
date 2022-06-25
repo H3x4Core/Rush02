@@ -15,6 +15,7 @@
 t_num	split_chunks(long long int num)
 {
 	t_num	n;
+	
 	n.h = num % 1000;
 	n.k = (num / 1000) % 1000;
 	n.m = (num / 1000000) % 1000;
