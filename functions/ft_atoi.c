@@ -18,33 +18,27 @@ int	is_numeric(char c)
 long long int	ft_atoi(char *str)
 {
 	long long int	n;
-	int	s; 
+	int				s;
 
 	s = 1;
-	n = 1;
+	n = 0;
 	while (*str == ' ' || *str == '\t' || *str == '\n'
 		|| *str == '\v' || *str == '\f' || *str == '\r')
 		str++;
-	if (*str == '-')
+	if (*str == '-' || *str == '+')
 	{
-		s *= -1;
+		if (*str == '-')
+			s *= -1;
 		str++;
 	}
-	if (*str == '+' && s > 0)
-	{
-		str++;
-	}
-	if (!is_numeric(*str))
-		return (0);
-	n = *str - '0';
-	str++;
 	while (is_numeric(*str))
 	{
 		n = 10 * n + *str - '0';
+		if (n > 4294967295)
+			return (-1);
 		str++;
 	}
-	n *= s;
-	return (n);
+	return (n * s);
 }
 
 /*
@@ -60,4 +54,4 @@ int main(int ac, char **av)
 	// printf("%s:	%d", av[ac], ft_atoi("-1112wq32"));
 	return (0);
 }
-*?
+*/
