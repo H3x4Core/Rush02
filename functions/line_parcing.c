@@ -14,31 +14,33 @@
 
 int	line_is_valid(char *str, int start, int end)
 {
-	int	i;
+	char	*oldpos;
 
-	i = 0;
-	if (ft_is_numeric(str[start]))
-	{
-		while (ft_is_numeric(start + i))
-			i++;
-		while (str[start + i] == ' ')
-			i++;
-		if (str[start + i] == ':')
-		{
-			i++;
-			while (str[start + i] == ' ')
-				i++;
-			if (ft_is_printable(str[start + i]))
-			{
-				while (ft_is_printable(start + i))
-					i++;
-				if (str[end] == '\n')
-					return (1);
-			}
-		}	
-	}
+	oldpos = str;
+	while (ft_is_numeric(*str))
+			str++;
+	while (oldpos < str && *str == ' ')
+		str++;
+	if (oldpos == str)
+		return (0);
+	if (*str != ':')
+		return (0);
+	str++;
+	while (*str == ' ')
+		str++;
+	if (ft_is_printable(*str))
+		return (1);
 	return (0);
 }
+	// while (ft_isspace(*str))
+	// 	str++;
+	// printf("got here[%c]\n", *str);
+	// while (ft_is_printable(*str))
+	// {
+	// 	str++;
+	// 	if (*str == '\n' || *str == '\0')
+	// 		return (1);
+	// }
 
 int	line_to_num(char *str)
 {
@@ -85,21 +87,9 @@ char *line_to_words(char *str)
 /*
 int main(int ac, char **av)
 {
-	//ac -= 1;
-	//av += 1;
-	for (int i = 0; i < ac; i++)
-	{
-		t_dict entry1;
-
-		entry1.n = line_to_num(av[i]);
-		entry1.words = line_to_words(av[i]);
-	}
-	t_dict entry1;
-
-	entry1.n = line_to_num(av[1]);
-	entry1.words = line_to_words(av[1]);
 	printf("%d\n", line_to_num(av[1]));
 	printf("%s\n", line_to_words(av[1]));
+	printf("line valid:%d\n", line_is_valid(av[1]));
 	return 0;
 }
 */
