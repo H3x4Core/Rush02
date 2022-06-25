@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: znichola <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: matwinte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:25:14 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/25 13:25:19 by znichola         ###   ########.fr       */
+/*   Updated: 2022/06/25 15:33:29 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,13 @@ typedef struct s_num
 	int	b;
 
 }	t_sum;
+
+typedef struct s_dict
+{
+	unsigned int	n;
+	char 			*words;
+	t_dict			*next;
+
+}				t_dict;
 
 #endif
