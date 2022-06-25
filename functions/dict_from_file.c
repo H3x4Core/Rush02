@@ -6,11 +6,11 @@
 /*   By: matwinte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 20:37:02 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/25 21:20:47 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/25 21:37:46 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../include/header.h"
 
 t_dict	*dict_from_file(char *filename)
 {
@@ -21,7 +21,7 @@ t_dict	*dict_from_file(char *filename)
 	str = read_file(filename);
 	if (!str || !line_is_valid(str))
 		return (0);
-	dict = dict_create_elem(line_to_words, line_to_num);
+	dict = dict_create_elem(line_to_words(str), line_to_num(str));
 	if (!dict)
 		return (0);
 	next = dict;
@@ -30,7 +30,7 @@ t_dict	*dict_from_file(char *filename)
 		if (!line_is_valid(str))
 			return (0);
 		next = dict_append_elem(next, line_to_words(str), line_to_num(str));
-		str += line_to_end(str) + 1;	
+		str = line_to_end(str) + 1;	
 	}
 	return (dict);
 }

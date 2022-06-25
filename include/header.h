@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:25:14 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/25 17:47:39 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/25 21:37:25 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,16 @@ void			ft_putstr(char *str);
 int				*nums_as_ints(t_num nums, int *int_array);
 void			split_number(int nbr, int *array, int *i);
 int				ft_is_printable(char c);
-int				line_is_valid(char *str, int start, int end);
+int				line_is_valid(char *str);
+char			*line_to_end(char *str);
 int				line_to_num(char *str);
 char 			*line_to_words(char *str);
 char			*read_file(char *filename);
+t_dict			*dict_from_file(char *filename);
+t_dict			*dict_create_elem(char *str, unsigned int n);
+t_dict			*dict_append_elem(t_dict *dict, char *str, unsigned int n);
+t_dict			*dict_find_nbr(t_dict *dict, unsigned int to_find);
+void			dict_sort(t_dict *dict);
+void			dict_free(t_dict *current);
 
 #endif
