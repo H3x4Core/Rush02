@@ -6,11 +6,11 @@
 /*   By: matwinte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:04:44 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/25 20:13:31 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/25 20:49:33 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/header.h"
+#include "header.h"
 
 /* ************************************************************************** *
 Create a new element
@@ -147,7 +147,7 @@ void	dict_free(t_dict *current)
 		free(previous->words);
 		free(previous);
 	}
-	//free(current->words);
+	free(current->words);
 	free(current);
 }
 
