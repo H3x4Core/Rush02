@@ -125,7 +125,13 @@ void debug_print_dict(t_dict *dict, char *str)
 		current = current->next;
 	}
 	printf("-------------%s--------------\n", str);
-		printf("current->n: %u\ncurrent->words: %s\ncurrent->next: %p\n", current->n, current->words, current->next);
+	printf("current->n: %u\ncurrent->words: %s\ncurrent->next: %p\n", current->n, current->words, current->next);
+}
+
+void debug_print_element(t_dict *current, char *str)
+{
+	printf("-------------%s--------------\n", str);
+	printf("current->n: %u\ncurrent->words: %s\ncurrent->next: %p\n", current->n, current->words, current->next);
 }
 
 
@@ -157,5 +163,7 @@ int main(void)
 	debug_print_dict(dict, "Appened");
 	dict_sort(dict);
 	debug_print_dict(dict, "Sorted");
+	debug_print_element(dict_find_nbr(dict, 12), "find");
+
 	return (0);
 }
