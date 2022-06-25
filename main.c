@@ -23,29 +23,45 @@ int	check_validity(char *str)
 	{
 		while (str[i] != '\n')
 			i++;
-		if (!line_is_valid(str, line_start, i))
-			return (0);
+		if (!line_is_valid(&str[i]))
+		{
+			printf("failed : %s", &str[i]);
+			return (1);
+		}
 		i++;
 		line_start = i;
 	}
 	return (1);
 }
 
+int	get_value_from_entry(void)
+{
+	int	ret;
+	char	*str;
+	str = malloc(10000);
+
+	ret = read(0, str, 30720);
+	return (ft_atoi(str));
+}
+
 int	main(int argc, char **argv)
 {
 	char	*dict_str;
-	int		value;
+	unsigned int		value;
 	t_num	s_split;
 	int		*int_array;
 
 	int_array = malloc(10000);
-	if (argc > 3 || argc <= 1)
+	if (argc > 3)
 		return (0);
-	else if (argc == 2)
+	else if (argc == 1)
+		value = get_value_from_entry();
+	else
+		value = ft_atoi(argv[argc - 1]);
+	if (argc == 2 || argc == 1)
 		dict_str = read_file("dictionaries/numbers.dict");
 	else
 		dict_str = read_file(argv[1]);
-	value = ft_atoi(argv[argc - 1]);
 	if (value >= 0 && check_validity(dict_str))
 	{
 		s_split = split_chunks(value);
@@ -54,6 +70,4 @@ int	main(int argc, char **argv)
 			printf("%d ", int_array[i]);
 	}
 	return (0);
-
 }
-
