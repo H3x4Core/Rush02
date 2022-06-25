@@ -15,10 +15,10 @@ int	is_numeric(char c)
 	return (c >= '0' && c <= '9');
 }
 
-int	ft_atoi(char *str)
+long long int	ft_atoi(char *str)
 {
-	int	n;
-	int	s;
+	long long int	n;
+	int	s; 
 
 	s = 1;
 	n = 1;
@@ -26,6 +26,11 @@ int	ft_atoi(char *str)
 		|| *str == '\v' || *str == '\f' || *str == '\r')
 		str++;
 	if (*str == '-')
+	{
+		s *= -1;
+		str++;
+	}
+	if (*str == '+')
 	{
 		s *= -1;
 		str++;
@@ -43,7 +48,7 @@ int	ft_atoi(char *str)
 	return (n);
 }
 
-/*
+
 #include <stdlib.h>
 #include <stdio.h>
 int main(int ac, char **av)
@@ -51,8 +56,7 @@ int main(int ac, char **av)
 	ac -= 1;
 	av += 1;
 	for (int i = 1; i < ac; i++)
-		printf("str:%s	atoi:%d	ft_atoi:%d\n", av[i], atoi(av[i]), ft_atoi(av[i]));
+		printf("str:%s	atoi:%d	ft_atoi:%lu\n", av[i], atoi(av[i]), ft_atoi(av[i]));
 	// printf("%s:	%d", av[ac], ft_atoi("-1112wq32"));
 	return (0);
 }
-*/

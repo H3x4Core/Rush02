@@ -12,7 +12,7 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc > 3 || argc == 1)
+	if (argc > 3 || argc <= 1)
 		return (0);
 	else if (argc == 2)
 		// run the code to conver argc 1 to a number
