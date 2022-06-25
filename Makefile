@@ -1,4 +1,4 @@
-NAME = main
+NAME = rush-02
 
 SRC = main.c functions/*.c
 

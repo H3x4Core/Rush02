@@ -12,24 +12,27 @@
 
 #include "header.h"
 
-int	line_is_valid(char *str)
+int	line_is_valid(char *str, int start, int end)
 {
-	if (ft_is_numeric(*str))
+	int	i;
+
+	i = 0;
+	if (ft_is_numeric(str[start]))
 	{
-		while (ft_is_numeric(*str))
-			str++;
-		while (*str == ' ')
-			str++;
-		if (*str == ':')
+		while (ft_is_numeric(start + i))
+			i++;
+		while (str[start + i] == ' ')
+			i++;
+		if (str[start + i] == ':')
 		{
-			str++;
-			while (*str == ' ')
-				str++;
-			if (ft_is_printable(*str))
+			i++;
+			while (str[start + i] == ' ')
+				i++;
+			if (ft_is_printable(str[start + i]))
 			{
-				while (ft_is_printable(*str))
-					str++;
-				if (*str == '\n')
+				while (ft_is_printable(start + i))
+					i++;
+				if (str[end] == '\n')
 					return (1);
 			}
 		}	

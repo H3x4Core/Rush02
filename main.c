@@ -14,7 +14,20 @@
 
 int	check_validity(char *str)
 {
-	(void) str;
+	int	i;
+	int	line_start;
+
+	i = 0;
+	line_start = 0;
+	while (str[i] != '\0')
+	{
+		while (str[i] != '\n')
+			i++;
+		if (!line_is_valid(str, line_start, i))
+			return (0);
+		i++;
+		line_start = i;
+	}
 	return (1);
 }
 
