@@ -42,6 +42,13 @@ int	line_is_valid(char *str, int start, int end)
 	// 		return (1);
 	// }
 
+char	*line_to_end(*str)
+{
+	while (*str != '\n' && *str != '\0')
+		str++;
+	return (str);
+}
+
 int	line_to_num(char *str)
 {
 	int	num;
