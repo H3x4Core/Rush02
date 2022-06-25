@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -6,7 +7,7 @@
 /*   By: matwinte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:25:14 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/25 21:25:51 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/25 17:47:39 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +49,9 @@ void			ft_putstr(char *str);
 int				*nums_as_ints(t_num nums, int *int_array);
 void			split_number(int nbr, int *array, int *i);
 int				ft_is_printable(char c);
-int				line_is_valid(char *str);
+int				line_is_valid(char *str, int start, int end);
 int				line_to_num(char *str);
-char			*line_to_words(char *str);
+char 			*line_to_words(char *str);
 char			*read_file(char *filename);
 
 /* -- dict_tools --*/
