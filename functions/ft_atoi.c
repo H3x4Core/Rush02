@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_numeric(char c)
+int	ft_is_numeric(char c)
 {
 	return (c >= '0' && c <= '9');
 }
@@ -36,7 +36,7 @@ long long int	ft_atoi(char *str)
 			s *= -1;
 		str++;
 	}
-	while (is_numeric(*str))
+	while (ft_is_numeric(*str))
 	{
 		n = 10 * n + *str - '0';
 		if (n > 4294967295)

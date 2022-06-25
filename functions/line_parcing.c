@@ -24,21 +24,30 @@ int	line_is_valid(char *str)
 
 int	line_to_num(char *str)
 {
-	while (*str)
+	int	num;
+	
+	num = 0;
+	while (ft_is_numeric(*str))
 	{
-		//something something
+		num = num * 10 + *str;
 		str++;
 	}
+	return (num);
 }
 
 char *line_to_words(char *str)
 {
-	char	words
+	char	words;
+	while (*str != ':')
+		str++;
+	while (ft_isspace(*str))
+		str++;
 	while (*str)
 	{
 		//something something
 		str++;
 	}
+	return (words);
 }
 
 int main(int ac, char **av)
@@ -52,8 +61,7 @@ int main(int ac, char **av)
 		entry1.n = line_to_num(av[i]);
 		entry1.words = line_to_words(av[i]);
 		
-		t_num n = split_chunks(ft_atoi(av[i]));
-		printf("num:%lld\nh:%d\nt:%d\nm:%d\nb:%d\n\n", 
+		printf("str:%d\nn:%d\nwords:%s\n\n", av[i], entry1.n, entry1.words);
 	}
 
 }

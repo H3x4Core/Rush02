@@ -41,11 +41,14 @@ typedef struct s_dict
 
 t_num			split_chunks(long long int num);
 long long int	ft_atoi(char *str);
-int				is_numeric(char c);
+int				ft_is_numeric(char c);
 int				ft_isspace(char c);
 void			ft_putstr(char *str);
 void			ft_putnbr(int nb);
 int				*nums_as_ints(t_num nums, int *int_array);
 void			split_number(int nbr, int *array, int *i);
+int	line_is_valid(char *str);
+int	line_to_num(char *str);
+char *line_to_words(char *str);
 
 #endif
