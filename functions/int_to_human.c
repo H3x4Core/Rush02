@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_to_human.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpouce <marvin@42lausanne.ch>              +#+  +:+       +#+        */
+/*   By: matwinte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:49:09 by mpouce            #+#    #+#             */
-/*   Updated: 2022/06/25 19:49:09 by mpouce           ###   ########.fr       */
+/*   Updated: 2022/06/26 01:08:21 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 char	**humanize(unsigned int	*array, t_dict *dict_start)
 {
 	unsigned int	i;
-	char	**str_array;
-	t_dict	*dict_list;
+	char			**str_array;
+	t_dict			*dict_list;
 
 	str_array = malloc(100000);
 	i = 0;
@@ -25,7 +25,7 @@ char	**humanize(unsigned int	*array, t_dict *dict_start)
 		dict_list = dict_start;
 		while (dict_list->n != array[i])
 		{
-			printf("checking number %d\n", dict_list->n);
+			printf("checking number %d\n", dict_list->n); //DEBUG
 			dict_list = dict_list->next;
 		}
 		str_array[i] = dict_list->words;

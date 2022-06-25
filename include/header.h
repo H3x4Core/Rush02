@@ -6,16 +6,17 @@
 /*   By: matwinte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:25:14 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/25 23:04:12 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 01:12:30 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+# include <fcntl.h>	// open
+# include <unistd.h> // close, read, write
+# include <stdlib.h>	// malloc
+# include <stdio.h>
 
 # define ERROR = -1
 # define DICT_ERROR = -2
@@ -36,7 +37,7 @@ typedef struct s_num
 typedef struct s_dict
 {
 	unsigned int	n;
-	char 			*words;
+	char			*words;
 	struct s_dict	*next;
 
 }					t_dict;
@@ -52,7 +53,7 @@ int				ft_is_printable(char c);
 int				line_is_valid(char *str);
 char			*line_to_end(char *str);
 int				line_to_num(char *str);
-char 			*line_to_words(char *str);
+char			*line_to_words(char *str);
 char			*read_file(char *filename);
 t_dict			*dict_from_file(char *filename);
 t_dict			*dict_create_elem(char *str, unsigned int n);
@@ -63,9 +64,8 @@ void			dict_free(t_dict *current);
 int				ft_strlen(char *str);
 
 /******************* DEBUG ***********************/
-t_dict *hardcoded_dict(void);
-void debug_print_dict(t_dict *dict, char *str);
-void debug_print_element(t_dict *current, char *str);
-
+t_dict			*hardcoded_dict(void);
+void			debug_print_dict(t_dict *dict, char *str);
+void			debug_print_element(t_dict *current, char *str);
 
 #endif
