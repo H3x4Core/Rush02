@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   line_parcing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: znichola <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: matwinte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 16:07:26 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/25 16:07:28 by znichola         ###   ########.fr       */
+/*   Updated: 2022/06/25 21:37:13 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	line_is_valid(char *str, int start, int end)
+int	line_is_valid(char *str)
 {
 	char	*oldpos;
 
@@ -42,7 +42,7 @@ int	line_is_valid(char *str, int start, int end)
 	// 		return (1);
 	// }
 
-char	*line_to_end(*str)
+char	*line_to_end(char *str)
 {
 	while (*str != '\n' && *str != '\0')
 		str++;
