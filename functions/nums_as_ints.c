@@ -24,7 +24,7 @@ typedef struct s_num
 }	t_num;
 // End to typedef for tests, don't forget to remove*/
 
-#include "../include/header.h"
+#include "header.h"
 
 void	split_number(int nbr, int *array, int *i)
 {
