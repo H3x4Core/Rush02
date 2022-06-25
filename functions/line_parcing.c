@@ -19,14 +19,14 @@ int	line_is_valid(char *str)
 	oldpos = str;
 	while (ft_is_numeric(*str))
 			str++;
-	while (oldpos < str && ft_isspace(*str))
+	while (oldpos < str && *str == ' ')
 		str++;
 	if (oldpos == str)
 		return (0);
 	if (*str != ':')
 		return (0);
 	str++;
-	while (ft_isspace(*str))
+	while (*str == ' ')
 		str++;
 	if (ft_is_printable(*str))
 		return (1);
