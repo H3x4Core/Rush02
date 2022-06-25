@@ -89,14 +89,3 @@ void	dict_sort(t_dict *dict)
 	}
 }
 
-#include <stdio.h>
-int main(void)
-{
-	int n = 10;
-	char *str = malloc(sizeof("dix"));
-	if (!str)
-		return (0);
-	str = "dix";
-	
-
-}
