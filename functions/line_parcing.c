@@ -45,7 +45,7 @@ int	line_is_valid(char *str, int start, int end)
 int	line_to_num(char *str)
 {
 	int	num;
-	
+
 	num = 0;
 	while (ft_is_numeric(*str))
 	{
@@ -55,11 +55,11 @@ int	line_to_num(char *str)
 	return (num);
 }
 
-char *line_to_words(char *str)
+char	*line_to_words(char *str)
 {
 	char	*words;
 	int		i;
-	int 	j;
+	int		j;
 
 	j = 0;
 	while (str[j] != ':')
