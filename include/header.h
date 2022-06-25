@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:25:14 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/25 15:33:29 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/25 17:47:39 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_dict
 	char 			*words;
 	struct s_dict	*next;
 
-}				t_dict;
+}					t_dict;
 
 t_num			split_chunks(long long int num);
 long long int	ft_atoi(char *str);
