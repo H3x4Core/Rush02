@@ -13,8 +13,13 @@
 #ifndef HEADER_H
 # define HEADER_H
 
+#include <unistd.h>
+#include <stdlib.h>
+
 # define ERROR = -1
 # define DICT_ERROR = -2
+# define ERROR_MSG = "Error\n"
+# define DIC_ERROR_MSG = "Dict Error\n"
 
 /*stors the input number split into goups of 3 dgits*/
 typedef struct s_num
@@ -26,12 +31,6 @@ typedef struct s_num
 
 }	t_num;
 
-t_num	split_chunks(long long int num);
-long long int	ft_atoi(char *str);
-void			ft_putstr(char *str);
-void			ft_putnbr(int nb);
-
-
 typedef struct s_dict
 {
 	unsigned int	n;
@@ -39,5 +38,14 @@ typedef struct s_dict
 	t_dict			*next;
 
 }				t_dict;
+
+t_num			split_chunks(long long int num);
+long long int	ft_atoi(char *str);
+int				is_numeric(char c);
+int				ft_isspace(char c);
+void			ft_putstr(char *str);
+void			ft_putnbr(int nb);
+int				*nums_as_ints(t_num nums, int *int_array);
+void			split_number(int nbr, int *array, int *i);
 
 #endif
