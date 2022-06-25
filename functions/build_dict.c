@@ -89,3 +89,18 @@ void	dict_sort(t_dict *dict)
 	}
 }
 
+#include <stdio.h>
+int main(void)
+{
+	unsigned int n = 10;
+	char *str = malloc(sizeof("dix"));
+	t_dict *dict;
+
+	if (!str)
+		return (0);
+	str = "dix";
+	printf("str: %s\n", str);
+	dict = dict_create_elem(str, n);
+	printf("dict->n: %u\ndict->words: %s\ndict->next: %p\n", dict->n, dict->words, dict->next);
+	return (0);
+}
