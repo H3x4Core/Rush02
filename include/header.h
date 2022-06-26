@@ -47,8 +47,8 @@ long long int	ft_atoi(char *str);
 int				ft_is_numeric(char c);
 int				ft_isspace(char c);
 void			ft_putstr(char *str);
-int				*nums_as_ints(t_num nums, int *int_array);
-void			split_number(int nbr, int *array, int *i);
+unsigned int				*nums_as_ints(t_num nums, unsigned int *int_array);
+void			split_number(int nbr, unsigned int *array, int *i);
 int				ft_is_printable(char c);
 int				line_is_valid(char *str);
 char			*line_to_end(char *str);
@@ -62,6 +62,7 @@ t_dict			*dict_find_nbr(t_dict *dict, unsigned int to_find);
 void			dict_sort(t_dict *dict);
 t_dict			*dict_free(t_dict *current);
 int				ft_strlen(char *str);
+char	**humanize(unsigned int *array, t_dict *dict_start);
 
 /******************* DEBUG ***********************/
 t_dict			*hardcoded_dict(void);
