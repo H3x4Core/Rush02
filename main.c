@@ -17,12 +17,13 @@ int	main(int argc, char **argv)
 	char			*filename;
 	long long int	value;
 
+	value = -1;
 	if (argc > 3)
 		return (0);
 	else if (argc == 1)
 		value = get_value_from_entry();
-	else
-		value = ft_atoi(argv[argc - 1]) * check_value(argv[argc - 1]);
+	else if (check_value(argv[argc - 1]) == 1)
+		value = ft_atoi(argv[argc - 1]);
 	if (argc == 2 || argc == 1)
 		filename = forge_filename("numbers.dict");
 	else
