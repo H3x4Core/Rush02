@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:25:14 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/26 19:48:13 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 20:54:28 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,6 @@ void			translate(char *filename, long long int value);
 char			*forge_filename(char *file);
 void			copy_buffer(char *buffer, char *str, int len);
 char			*ft_strcat(char *dest, char *src);
-
-/******************* DEBUG ***********************/
-t_dict			*hardcoded_dict(void);
-void			debug_print_dict(t_dict *dict, char *str);
-void			debug_print_element(t_dict *current, char *str);
+int				free_name(char *str);
 
 #endif
