@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 20:37:02 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/26 15:12:48 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 15:42:52 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,15 @@ t_dict	*dict_append_loop(char *str, unsigned int n, t_dict *dict, t_dict *next)
 	return (next);
 }
 
+t_dict	*combined_free(t_dict *dict, char *str)
+{
+	if (str)
+		free(str);
+	if (dict)
+		dict_free(dict);
+	return (0);
+}
+
 /* ************************************************************************** *
 Put the dictionary from the file in the list
 
@@ -101,25 +110,28 @@ t_dict	*dict_from_file(char *filename)
 	t_dict			*dict;
 	t_dict			*next;
 	char			*str;
+	char			*ori_str;
 	unsigned int	n;
 
 	str = read_file(filename);
 	dict = 0;
 	if (!str)
 		return (0);
+	ori_str = str;
 	str = get_first_valid_line(str, &n);
 	if (line_is_valid(str) && n != 4294967295)
 		dict = dict_create_elem(line_to_words(str), n);
 	if (!dict)
-		return (0);
+		return (combined_free(dict, ori_str));
 	next = dict;
 	if (!dict_append_loop(str, n, dict, next))
-		return (0);
+		return (combined_free(dict, ori_str));
+	free(ori_str);
 	return (dict);
 }
 
 #if 0
-
+/*
 int	main(void)
 {
 	t_dict	*dict;
@@ -131,5 +143,5 @@ int	main(void)
 	debug_print_dict(dict, "file to dict sorted");
 	return (0);
 }
-
+*/
 #endif
