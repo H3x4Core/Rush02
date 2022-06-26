@@ -6,18 +6,26 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 14:23:19 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/26 15:42:12 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 16:43:51 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+void	copy_buffer(char *buffer, char *str, int len)
+{
+	int i;
+	
+	i = -1;
+	while (++i < len)
+		str[i] = buffer[i];
+}
 
 char	*read_file(char *filename)
 {
 	char	buffer[BUF_SIZE + 1];
 	int		fd;
 	int		len;
-	int		i;
 	char	*str;
 
 	fd = open(filename, O_RDONLY);
@@ -33,9 +41,7 @@ char	*read_file(char *filename)
 		free(str);
 		return (0);
 	}
-	i = -1;
-	while (++i < len)
-		str[i] = buffer[i];
+	copy_buffer(buffer, str, len);
 	return (str);
 }
 /*

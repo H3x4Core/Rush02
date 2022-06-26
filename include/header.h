@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:25:14 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/26 15:01:19 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 16:56:47 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,15 @@ t_dict			*dict_find_nbr(t_dict *dict, unsigned int to_find);
 void			dict_sort(t_dict *dict);
 t_dict			*dict_free(t_dict *current);
 int				ft_strlen(char *str);
+<<<<<<< HEAD
 char	**humanize(unsigned int *array, t_dict *dict_start);
 void	translate(char *filename, long long int value);
 char	*trim_line(char *str);
+=======
+char			**humanize(unsigned int *array, t_dict *dict_start);
+void			copy_buffer(char *buffer, char *str, int len);
+char			*ft_strcat(char *dest, char *src);
+>>>>>>> ea0461a (update)
 
 /******************* DEBUG ***********************/
 t_dict			*hardcoded_dict(void);
