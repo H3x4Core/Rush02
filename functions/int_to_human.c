@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_to_human.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matwinte <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:49:09 by mpouce            #+#    #+#             */
-/*   Updated: 2022/06/26 01:08:21 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 20:22:03 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**humanize(unsigned int	*array, t_dict *dict_start)
 	char			**str_array;
 	t_dict			*dict_list;
 
-	str_array = malloc(100000);
+	str_array = malloc(sizeof(array));
 	i = 0;
 	while (array[i] != 0 || i == 0)
 	{
@@ -86,26 +86,29 @@ int	check_validity(char *str)
 	{
 		if (new_line_flag)
 			if (! (line_is_valid(&str[i])))
+			{
+				free(str);
 				return (0);
+			}
 		if (str[i] == '\n')
 			new_line_flag = 1;
 		else
 			new_line_flag = 0;
 		i++;
 	}
+	free(str);
 	return (1);
 }
 
 int	get_value_from_entry(void)
 {
-	int				ret;
 	char			*str;
 	unsigned int	r;
 
-	str = malloc(11);
+	str = malloc(4096);
 	if (!str)
 		return (0);
-	ret = read(0, str, 4096);
+	read(0, str, 4096);
 	if (check_value(str) == -1)
 	{
 		free(str);
@@ -137,5 +140,7 @@ void	translate(char *filename, long long int value)
 		ft_putstr(" ");
 		i++;
 	}
+	free(end_str);
 	free(int_array);
+	dict_free(dict);
 }
