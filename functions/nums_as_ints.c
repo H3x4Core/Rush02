@@ -53,6 +53,7 @@ void	split_number(int nbr, unsigned int *array, int *i)
 unsigned int	*nums_as_ints(t_num nums, unsigned int *int_array)
 {
 	int	i;
+
 	i = 0;
 	if (nums.b > 0)
 	{
@@ -75,27 +76,3 @@ unsigned int	*nums_as_ints(t_num nums, unsigned int *int_array)
 	split_number(nums.h, int_array, &i);
 	return (int_array);
 }
-
-// Testing with 7 131 456
-// Should result in 7 1000000 100 30 1 1000 4 100 50 6
-/*
-int main(void)
-{
-	t_num	nums;
-	int		*int_array;
-	int		i;
-
-	int_array = (int *)malloc(12 * sizeof(int));
-	nums.h = 15;
-	nums.k = 0;
-	nums.m = 0;
-	nums.b = 0;
-	i = 0;
-
-	int_array = nums_as_ints(nums, int_array);
-	
-	for (i = 0; i < 15; i++)
-	{
-		printf("%d ", int_array[i]);
-	}
-}*/
