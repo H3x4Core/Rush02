@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:25:14 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/26 16:56:47 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 18:24:16 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ long long int	ft_atoi(char *str);
 int				ft_is_numeric(char c);
 int				ft_isspace(char c);
 void			ft_putstr(char *str);
-unsigned int				*nums_as_ints(t_num nums, unsigned int *int_array);
+unsigned int	*nums_as_ints(t_num nums, unsigned int *int_array);
 void			split_number(int nbr, unsigned int *array, int *i);
 int				ft_is_printable(char c);
 int				line_is_valid(char *str);
@@ -62,15 +62,14 @@ t_dict			*dict_find_nbr(t_dict *dict, unsigned int to_find);
 void			dict_sort(t_dict *dict);
 t_dict			*dict_free(t_dict *current);
 int				ft_strlen(char *str);
-<<<<<<< HEAD
-char	**humanize(unsigned int *array, t_dict *dict_start);
-void	translate(char *filename, long long int value);
-char	*trim_line(char *str);
-=======
 char			**humanize(unsigned int *array, t_dict *dict_start);
+void			translate(char *filename, long long int value);
+char			*trim_line(char *str);
 void			copy_buffer(char *buffer, char *str, int len);
 char			*ft_strcat(char *dest, char *src);
->>>>>>> ea0461a (update)
+char			*forge_filename(char *file);
+int				check_validity(char *str);
+int				get_value_from_entry(void);
 
 /******************* DEBUG ***********************/
 t_dict			*hardcoded_dict(void);
