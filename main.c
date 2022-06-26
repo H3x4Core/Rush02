@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: znichola <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 10:13:36 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/25 10:23:34 by znichola         ###   ########.fr       */
+/*   Updated: 2022/06/26 19:41:38 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	main(int argc, char **argv)
 	else if (check_value(argv[argc - 1]) == 1)
 		value = ft_atoi(argv[argc - 1]);
 	if (argc == 2 || argc == 1)
-		filename = "dictionaries/numbers.dict";
+		filename = forge_filename("numbers.dict");
 	else
-		filename = argv[1];
+		filename = forge_filename(argv[1]);
 	if (value >= 0)
 	{
 		if (check_validity(read_file(filename)))
@@ -40,4 +40,3 @@ int	main(int argc, char **argv)
 	ft_putstr("\n");
 	return (0);
 }
-

@@ -6,6 +6,7 @@ rush-02
 
 # VS Code
 .vscode
+.vscode_old
 
 # vim
 *.swp
