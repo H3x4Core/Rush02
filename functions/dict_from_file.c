@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 20:37:02 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/26 15:42:52 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 15:48:31 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,14 @@ t_dict	*dict_append_loop(char *str, unsigned int n, t_dict *dict, t_dict *next)
 	return (next);
 }
 
+/*
+Free the dictionary and the string if they are not pointing on void pointer
+Input:
+	- t_dict *dict : the address of the first item in the dictionary
+	- char *str : the address of the first char of the buffered file
+Output:
+	- Void pointer
+*/
 t_dict	*combined_free(t_dict *dict, char *str)
 {
 	if (str)
