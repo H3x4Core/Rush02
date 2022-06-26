@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:20:27 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/26 18:25:05 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 18:50:36 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,40 @@ int check_validity(char *str)
     }
     return (1);
 }
+#if 1
+int    get_value_from_entry(void)
+{
+	int				ret;
+    char			*str;
+    unsigned int	r;
+    
+    str = malloc(10000);
 
+    ret = read(0, str, 10000);
+    r = ft_atoi(str);
+    free(str);
+    return (r);
+}
+#endif
+#if 0
 int	get_value_from_entry(void)
 {
 	int			len;
 	char		buffer[BUF_SIZE + 1];
 	char		*str;
 	long int	n;
+
 	len = read(0, buffer, BUF_SIZE);
 	str = malloc(sizeof(char) * len + 1);
 	if (!str)
 		return (-1);
+	str[0] = 0;
 	copy_buffer(str, buffer, len);
 	n = ft_atoi(str);
 	free(str);
 	return (n);
 }
-
+#endif
 void	translate(char *filename, long long int value)
 {
 	t_dict	*dict;
