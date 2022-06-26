@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 20:37:02 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/26 20:31:26 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 20:46:16 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@ Ouput:
 long unsigned int	line_to_num_check(char *str)
 {
 	long unsigned int	num;
-	int					i;
+	//int					i;
 
-	i = 0;
-	num = 0;
-	while (ft_is_numeric(*str))
+	//i = 0;
+	num = ft_atoi(str);
+	/*while (ft_is_numeric(*str))
 	{
 		num = num * 10 + (*str - '0');
 		str++;
 		if (i++ > 10 || num > 4294967295)
 			return (4294967295);
-	}
+	}*/
 	return (num);
 }
 
