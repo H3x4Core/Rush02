@@ -26,7 +26,7 @@ typedef struct s_num
 
 #include "header.h"
 
-void	split_number(int nbr, int *array, int *i)
+void	split_number(int nbr, unsigned int *array, int *i)
 {
 	if (nbr / 100 > 0)
 	{
@@ -42,15 +42,17 @@ void	split_number(int nbr, int *array, int *i)
 	}
 	else
 	{
-		array[*i] = (nbr % 100);
-		*i += 1;
+		if (nbr % 100 > 0)
+		{
+			array[*i] = (nbr % 100);
+			*i += 1;
+		}
 	}
 }
 
-int	*nums_as_ints(t_num nums, int *int_array)
+unsigned int	*nums_as_ints(t_num nums, unsigned int *int_array)
 {
 	int	i;
-
 	i = 0;
 	if (nums.b > 0)
 	{
@@ -70,8 +72,7 @@ int	*nums_as_ints(t_num nums, int *int_array)
 		int_array[i] = 1000;
 		i++;
 	}
-	if (nums.h > 0)
-		split_number(nums.h, int_array, &i);
+	split_number(nums.h, int_array, &i);
 	return (int_array);
 }
 

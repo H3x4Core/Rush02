@@ -46,10 +46,11 @@ int	get_value_from_entry(void)
 
 int	main(int argc, char **argv)
 {
-	char	*dict_str;
+	char	*filename;
 	unsigned int		value;
 	t_num	s_split;
-	int		*int_array;
+	unsigned int		*int_array;
+	t_dict	*dict;
 
 	int_array = malloc(10000);
 	if (argc > 3)
@@ -59,15 +60,25 @@ int	main(int argc, char **argv)
 	else
 		value = ft_atoi(argv[argc - 1]);
 	if (argc == 2 || argc == 1)
-		dict_str = read_file("dictionaries/numbers.dict");
+		filename = "dictionaries/numbers.dict";
 	else
-		dict_str = read_file(argv[1]);
-	if (value >= 0 && check_validity(dict_str))
-	{
+		filename = read_file(argv[1]);
+	//if (value >= 0 && check_validity(filename))
+	//{
+		dict = dict_from_file(filename);
+		dict_sort(dict);
 		s_split = split_chunks(value);
 		int_array = nums_as_ints(s_split, int_array);
-		for (int i = 0; i < 15; i++)
-			printf("%d ", int_array[i]);
-	}
+		char **end_str = humanize(int_array, dict);
+				
+		int i = 0;
+		while (end_str[i])
+		{
+			ft_putstr(end_str[i]);
+			ft_putstr(" ");
+			i++;	
+		}
+	//}
+	ft_putstr("\n");
 	return (0);
 }

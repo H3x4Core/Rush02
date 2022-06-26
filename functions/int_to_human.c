@@ -25,7 +25,7 @@ char	**humanize(unsigned int	*array, t_dict *dict_start)
 		dict_list = dict_start;
 		while (dict_list->n != array[i])
 		{
-			printf("checking number %d\n", dict_list->n); //DEBUG
+			//printf("checking number %d\n", dict_list->n); //DEBUG
 			dict_list = dict_list->next;
 		}
 		str_array[i] = dict_list->words;
