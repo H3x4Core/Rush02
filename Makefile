@@ -21,6 +21,8 @@ test: noflag
 	./${NAME} 0
 	./${NAME} 4294967295
 	./${NAME} aa45
+	./${NAME} "dictionaries/FR.dict" 45756
+	./${NAME} "rglkjdrglj" 555
 
 clean:
 
