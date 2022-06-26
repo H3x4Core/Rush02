@@ -47,10 +47,10 @@ int	check_value(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i] != '\0' && str[i] != '\n')
 	{
 		if (! (ft_is_numeric(str[i])))
-			return (0);
+			return (-1);
 		i++;
 	}
 	return (1);
