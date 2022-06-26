@@ -36,6 +36,8 @@ long long int	ft_atoi(char *str)
 			s *= -1;
 		str++;
 	}
+	if (!ft_is_numeric(*str))
+		return (-1);
 	while (ft_is_numeric(*str))
 	{
 		n = 10 * n + *str - '0';

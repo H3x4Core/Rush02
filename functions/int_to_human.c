@@ -20,7 +20,7 @@ char	**humanize(unsigned int	*array, t_dict *dict_start)
 
 	str_array = malloc(100000);
 	i = 0;
-	while (array[i] != 0)
+	while (array[i] != 0 || i == 0)
 	{
 		dict_list = dict_start;
 		while (dict_list->n != array[i])

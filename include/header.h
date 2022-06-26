@@ -63,6 +63,8 @@ void			dict_sort(t_dict *dict);
 t_dict			*dict_free(t_dict *current);
 int				ft_strlen(char *str);
 char	**humanize(unsigned int *array, t_dict *dict_start);
+void	translate(char *filename, long long int value);
+char	*trim_line(char *str);
 
 /******************* DEBUG ***********************/
 t_dict			*hardcoded_dict(void);
