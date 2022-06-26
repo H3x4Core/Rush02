@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:04:44 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/26 02:10:11 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 15:02:37 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,14 +132,14 @@ Free all the dictionary
 Input:
 	- t_dict *dict : first element of the dict
 Output:
-	- Nothing
+	- Void pointer
 * ************************************************************************** */
-void	dict_free(t_dict *current)
+t_dict	*dict_free(t_dict *current)
 {
 	t_dict	*previous;
 
 	if (!current)
-		return ;
+		return (0);
 	while (current->next)
 	{
 		previous = current;
@@ -149,4 +149,5 @@ void	dict_free(t_dict *current)
 	}
 	free(current->words);
 	free(current);
+	return (0);
 }
