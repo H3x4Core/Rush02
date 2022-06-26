@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 10:13:36 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/26 19:41:38 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 20:09:55 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ int	main(int argc, char **argv)
 	else
 		ft_putstr("Error");
 	ft_putstr("\n");
+	free(filename);
 	return (0);
 }
