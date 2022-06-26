@@ -93,4 +93,5 @@ void	translate(char *filename, long long int value)
 		ft_putstr(" ");
 		i++;	
 	}
+	free(int_array);
 }

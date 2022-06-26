@@ -14,26 +14,27 @@
 
 int    line_is_valid(char *str)
 {
-    char    *oldpos;
+	char    *oldpos;
 
-    oldpos = str;
-
-    while (ft_is_numeric(*str) || ft_isspace(*str) || *str == '+')
-            str++;
-    // if (ft_atoi(str) < 0)
-    //     return (0);
-    while (oldpos < str && *str == ' ')
-        str++;
-    if (oldpos == str)
-        return (0);
-    if (*str != ':')
-        return (0);
-    str++;
-    while (*str == ' ')
-        str++;
-    if (ft_is_printable(*str))
-        return (1);
-    return (0);
+	oldpos = str;
+	// if (ft_atoi(str) < 0)
+	// 	return (0);
+	while (ft_is_numeric(*str) || ft_isspace(*str) 
+	|| *str == '+' || *str == '-')
+			str++;
+	
+	while (oldpos < str && *str == ' ')
+		str++;
+	if (oldpos == str)
+		return (0);
+	if (*str != ':')
+		return (0);
+	str++;
+	while (*str == ' ')
+		str++;
+	if (ft_is_printable(*str))
+		return (1);
+	return (0);
 }
 
 char	*line_to_end(char *str)
