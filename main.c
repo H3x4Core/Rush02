@@ -41,7 +41,9 @@ int	get_value_from_entry(void)
 	char			*str;
 	unsigned int	r;
 
-	str = malloc(10000);
+	str = malloc(11);
+	if (!str)
+		return (0);
 	ret = read(0, str, 30720);
 	r = ft_atoi(str) * check_value(str);
 	free(str);
