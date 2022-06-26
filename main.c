@@ -6,11 +6,21 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 10:13:36 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/26 22:14:23 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 22:22:39 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+char	*ft_helper(char *str, char* filename, long long int value)
+{
+	str = read_file(filename);
+	if (check_validity(str))
+		translate(filename, value);
+	else
+		ft_putstr("Dict Error");
+	return (str);
+}
 
 int	main(int argc, char **argv)
 {
@@ -19,6 +29,7 @@ int	main(int argc, char **argv)
 	long long int	value;
 
 	value = -1;
+	str = 0;
 	if (argc > 3)
 		return (0);
 	else if (argc == 1)
@@ -30,13 +41,7 @@ int	main(int argc, char **argv)
 	else
 		filename = forge_filename(argv[1]);
 	if (value >= 0)
-	{
-		str = read_file(filename);
-		if (check_validity(str))
-			translate(filename, value);
-		else
-			ft_putstr("Dict Error");
-	}
+		str = ft_helper(str, filename, value);
 	else
 		ft_putstr("Error");
 	ft_putstr("\n");
