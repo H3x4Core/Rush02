@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 19:30:54 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/26 20:53:35 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 21:32:19 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char *forge_filename(char *file)
 	ft_strcat(filename, "./dictionaries/");
 	ft_strcat(filename, file);
 	len = ft_strlen(filename);
-	forged = malloc(sizeof(char) * len);
+	forged = malloc(sizeof(char) * len + 1);
 	if (!forged)
 		return (0);
 	copy_buffer(filename, forged, len);
