@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: mwinter <mwinter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 14:23:19 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/26 15:42:12 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 19:20:10 by mwinter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+void	copy_buffer(char *buffer, char *str, int len)
+{
+	int i;
+
+	i = -1;
+	while (++i < len)
+		str[i] = buffer[i];
+}
 
 /* ************************************************************************** *
 Create a new element
@@ -25,7 +34,6 @@ char	*read_file(char *filename)
 	char	buffer[BUF_SIZE + 1];
 	int		fd;
 	int		len;
-	int		i;
 	char	*str;
 
 	fd = open(filename, O_RDONLY);
@@ -41,8 +49,6 @@ char	*read_file(char *filename)
 		free(str);
 		return (0);
 	}
-	i = -1;
-	while (++i < len)
-		str[i] = buffer[i];
+	copy_buffer(buffer, str, len);
 	return (str);
 }
