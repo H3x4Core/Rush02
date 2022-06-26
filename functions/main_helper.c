@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 19:30:54 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/26 21:32:19 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 22:08:53 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ char *forge_filename(char *file)
 
 int free_name(char *str)
 {
-	if (!str)
-		return (0);
 	free(str);
 	return (0);
 }

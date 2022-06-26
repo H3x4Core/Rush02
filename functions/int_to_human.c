@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:49:09 by mpouce            #+#    #+#             */
-/*   Updated: 2022/06/26 22:02:30 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 22:13:25 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ int	check_validity(char *str)
 		if (new_line_flag)
 			if (! (line_is_valid(&str[i])))
 			{
-				free(str);
 				return (0);
 			}
 		if (str[i] == '\n')
@@ -139,10 +138,7 @@ void	translate(char *filename, long long int value)
 		ft_putstr(" ");
 		i++;
 	}
-	if (!end_str)
-		free(end_str);
-	if (!int_array)
-		free(int_array);
-	if (!dict)
-		dict_free(dict);
+	free(end_str);
+	free(int_array);
+	dict_free(dict);
 }
