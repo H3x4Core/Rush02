@@ -6,11 +6,11 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:49:09 by mpouce            #+#    #+#             */
-/*   Updated: 2022/06/26 20:22:03 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 20:30:05 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/header.h"
+#include "header.h"
 
 /* ************************************************************************** *
 Create a 2d string array in the language of the dict

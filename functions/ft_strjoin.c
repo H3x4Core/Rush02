@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: znichola <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:38:57 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/22 14:38:59 by znichola         ###   ########.fr       */
+/*   Updated: 2022/06/26 20:32:39 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,3 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	}
 	return (str);
 }
-
-/*
-int main(int argc, char **argv)
-{
-	// argc = 1;
-	// char *foo = "some wierd string";
-	char *foo = ft_strjoin(argc-1, argv+1, "/");
-	printf("%s\n %d\n", foo, ft_strlen(foo));
-	free (foo);
-}
-*/

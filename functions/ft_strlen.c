@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: znichola <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 13:53:47 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/16 15:05:05 by znichola         ###   ########.fr       */
+/*   Updated: 2022/06/26 20:32:56 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "header.h"
 
 int	ft_strlen(char *str)
 {

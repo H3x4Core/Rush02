@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 20:37:02 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/26 15:48:31 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 20:31:26 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,19 +137,3 @@ t_dict	*dict_from_file(char *filename)
 	free(ori_str);
 	return (dict);
 }
-
-#if 0
-/*
-int	main(void)
-{
-	t_dict	*dict;
-	char	*filename;
-
-	filename = "../dictionaries/wrong.dict";
-	dict = dict_from_file(filename);
-	dict_sort(dict);
-	debug_print_dict(dict, "file to dict sorted");
-	return (0);
-}
-*/
-#endif
