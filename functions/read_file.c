@@ -12,6 +12,14 @@
 
 #include "header.h"
 
+/* ************************************************************************** *
+Create a new element
+
+Input:
+	- char *filename : str containing the name of the file to open
+Output:
+	- char *str : whole dictionary contained in a single string
+* ************************************************************************** */
 char	*read_file(char *filename)
 {
 	char	buffer[BUF_SIZE + 1];
@@ -38,11 +46,3 @@ char	*read_file(char *filename)
 		str[i] = buffer[i];
 	return (str);
 }
-/*
-#include <stdio.h> //DEBUGGGGG
-int	main(void)
-{
-	char	*filename = "../dictionaries/numbers.dict";
-	char	*buffer;
-	buffer = ft_read_file(filename);
-}*/
