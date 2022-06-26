@@ -12,26 +12,27 @@
 
 #include "header.h"
 
-int	check_validity(char *str)
+int check_validity(char *str)
 {
-	int	i;
-	int	line_start;
+    int i;
+    int new_line_flag;
 
-	i = 0;
-	line_start = 0;
-	while (str[i] != '\0')
-	{
-		while (str[i] != '\n')
-			i++;
-		if (!line_is_valid(&str[i]))
-		{
-			printf("failed : %s", &str[i]);
-			return (1);
-		}
-		i++;
-		line_start = i;
-	}
-	return (1);
+    new_line_flag = 1;
+    i = 0;
+    while(str[i])
+    {
+        if (new_line_flag)
+            if (!line_is_valid(&str[i]))
+            {
+                return (0);
+            }
+        if (str[i] == '\n')
+            new_line_flag = 1;
+        else 
+            new_line_flag = 0;
+        i++;
+    }
+    return (1);
 }
 
 int	get_value_from_entry(void)
@@ -47,12 +48,8 @@ int	get_value_from_entry(void)
 int	main(int argc, char **argv)
 {
 	char	*filename;
-	unsigned int		value;
-	t_num	s_split;
-	unsigned int		*int_array;
-	t_dict	*dict;
+	long long int		value;
 
-	int_array = malloc(10000);
 	if (argc > 3)
 		return (0);
 	else if (argc == 1)
@@ -62,23 +59,38 @@ int	main(int argc, char **argv)
 	if (argc == 2 || argc == 1)
 		filename = "dictionaries/numbers.dict";
 	else
-		filename = read_file(argv[1]);
-	//if (value >= 0 && check_validity(filename))
-	//{
-		dict = dict_from_file(filename);
-		dict_sort(dict);
-		s_split = split_chunks(value);
-		int_array = nums_as_ints(s_split, int_array);
-		char **end_str = humanize(int_array, dict);
-				
-		int i = 0;
-		while (end_str[i])
-		{
-			ft_putstr(end_str[i]);
-			ft_putstr(" ");
-			i++;	
-		}
-	//}
+		filename = argv[1];
+	if (value >= 0)
+	{
+		if (check_validity(read_file(filename)))
+			translate(filename, value);
+		else
+			ft_putstr("Dict Error");
+	}
+	else
+		ft_putstr("Error");
 	ft_putstr("\n");
 	return (0);
+}
+
+void	translate(char *filename, long long int value)
+{
+	t_dict	*dict;
+	t_num	s_split;
+	unsigned int		*int_array;
+
+	int_array = (unsigned int *)malloc(17 * sizeof(int));
+	dict = dict_from_file(filename);
+	dict_sort(dict);
+	s_split = split_chunks(value);
+	int_array = nums_as_ints(s_split, int_array);
+	char **end_str = humanize(int_array, dict);
+			
+	int i = 0;
+	while (end_str[i])
+	{
+		ft_putstr(end_str[i]);
+		ft_putstr(" ");
+		i++;	
+	}
 }

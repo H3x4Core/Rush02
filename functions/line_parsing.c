@@ -12,35 +12,29 @@
 
 #include "header.h"
 
-int	line_is_valid(char *str)
+int    line_is_valid(char *str)
 {
-	char	*oldpos;
+    char    *oldpos;
 
-	oldpos = str;
-	while (ft_is_numeric(*str))
-			str++;
-	while (oldpos < str && *str == ' ')
-		str++;
-	if (oldpos == str)
-		return (0);
-	if (*str != ':')
-		return (0);
-	str++;
-	while (*str == ' ')
-		str++;
-	if (ft_is_printable(*str))
-		return (1);
-	return (0);
+    oldpos = str;
+
+    while (ft_is_numeric(*str) || ft_isspace(*str) || *str == '+')
+            str++;
+    // if (ft_atoi(str) < 0)
+    //     return (0);
+    while (oldpos < str && *str == ' ')
+        str++;
+    if (oldpos == str)
+        return (0);
+    if (*str != ':')
+        return (0);
+    str++;
+    while (*str == ' ')
+        str++;
+    if (ft_is_printable(*str))
+        return (1);
+    return (0);
 }
-	// while (ft_isspace(*str))
-	// 	str++;
-	// printf("got here[%c]\n", *str);
-	// while (ft_is_printable(*str))
-	// {
-	// 	str++;
-	// 	if (*str == '\n' || *str == '\0')
-	// 		return (1);
-	// }
 
 char	*line_to_end(char *str)
 {
@@ -60,6 +54,34 @@ int	line_to_num(char *str)
 		str++;
 	}
 	return (num);
+}
+
+char	*trim_line(char *str)
+{
+	int	i;
+	int	j;
+	int	spacefound;
+
+	i = 0;
+	j = 0;
+	spacefound = 0;
+	while (str[i + j] != '\0')
+	{
+		if (!ft_isspace(str[i + j]) || spacefound == 0)
+		{
+			spacefound = 0;
+			str[i] = str[i + j];
+			i++;
+		}
+		if (ft_isspace(str[i + j - 1]))
+		{
+			if (spacefound == 1)
+				j++;
+			spacefound = 1;
+		}
+	}
+	str[i] = '\0';
+	return (str);
 }
 
 char	*line_to_words(char *str)
@@ -88,7 +110,7 @@ char	*line_to_words(char *str)
 		j++;
 	}
 	words[i] = '\0';
-	return (words);
+	return (trim_line(words));
 }
 
 /*
