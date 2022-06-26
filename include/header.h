@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matwinte <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:25:14 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/26 01:12:30 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 15:01:19 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_dict			*dict_create_elem(char *str, unsigned int n);
 t_dict			*dict_append_elem(t_dict *dict, char *str, unsigned int n);
 t_dict			*dict_find_nbr(t_dict *dict, unsigned int to_find);
 void			dict_sort(t_dict *dict);
-void			dict_free(t_dict *current);
+t_dict			*dict_free(t_dict *current);
 int				ft_strlen(char *str);
 
 /******************* DEBUG ***********************/
