@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 20:37:02 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/26 14:06:07 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 15:12:48 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,21 @@ char	*get_first_valid_line(char *str, unsigned int *n)
 	return (str);
 }
 
+t_dict	*dict_append_loop(char *str, unsigned int n, t_dict *dict, t_dict *next)
+{
+	while (*str)
+	{
+		n = (unsigned int)line_to_num_check(str);
+		if (line_is_valid(str) && n != 4294967295
+			&& !dict_find_nbr(dict, (unsigned int)n))
+			next = dict_append_elem(next, line_to_words(str), n);
+		if (!next)
+			return (dict_free(dict));
+		str = line_to_end(str) + 1;
+	}
+	return (next);
+}
+
 /* ************************************************************************** *
 Put the dictionary from the file in the list
 
@@ -89,6 +104,7 @@ t_dict	*dict_from_file(char *filename)
 	unsigned int	n;
 
 	str = read_file(filename);
+	dict = 0;
 	if (!str)
 		return (0);
 	str = get_first_valid_line(str, &n);
@@ -97,28 +113,20 @@ t_dict	*dict_from_file(char *filename)
 	if (!dict)
 		return (0);
 	next = dict;
-	while (*str)
-	{
-		n = (unsigned int)line_to_num_check(str);
-		if (line_is_valid(str) && n != 4294967295
-			&& !dict_find_nbr(dict, (unsigned int)n))
-			next = dict_append_elem(next, line_to_words(str), n);
-		if (!next)
-			return (0);
-		str = line_to_end(str) + 1;
-	}
+	if (!dict_append_loop(str, n, dict, next))
+		return (0);
 	return (dict);
 }
 
-#if 1
+#if 0
 
 int	main(void)
 {
 	t_dict	*dict;
-	char	*str;
+	char	*filename;
 
-	str = "../dictionaries/test.dict";
-	dict = dict_from_file(str);
+	filename = "../dictionaries/wrong.dict";
+	dict = dict_from_file(filename);
 	dict_sort(dict);
 	debug_print_dict(dict, "file to dict sorted");
 	return (0);
