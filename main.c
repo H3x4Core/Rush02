@@ -37,12 +37,17 @@ int	check_validity(char *str)
 
 int	get_value_from_entry(void)
 {
-	int		ret;
-	char	*str;
+	int				ret;
+	char			*str;
+	unsigned int	r;
 
 	str = malloc(10000);
 	ret = read(0, str, 30720);
-	return (ft_atoi(str));
+	if (! (check_value(str)))
+		return (-1);
+	r = ft_atoi(str);
+	free(str);
+	return (r);
 }
 
 int	main(int argc, char **argv)
@@ -60,7 +65,7 @@ int	main(int argc, char **argv)
 		filename = "dictionaries/numbers.dict";
 	else
 		filename = argv[1];
-	if (value >= 0)
+	if (check_value(argv[argc - 1]) && value >= 0)
 	{
 		if (check_validity(read_file(filename)))
 			translate(filename, value);

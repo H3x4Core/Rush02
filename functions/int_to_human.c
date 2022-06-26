@@ -41,3 +41,17 @@ char	**humanize(unsigned int	*array, t_dict *dict_start)
 	}
 	return (str_array);
 }
+
+int	check_value(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (! (ft_is_numeric(str[i])))
+			return (0);
+		i++;
+	}
+	return (1);
+}
