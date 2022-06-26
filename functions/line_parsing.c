@@ -6,32 +6,35 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 16:07:26 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/26 20:33:20 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 22:20:18 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	line_is_valid(char *str)
+int    line_is_valid(char *str)
 {
-	char	*oldpos;
+    char    *oldpos;
 
-	oldpos = str;
-	while (ft_is_numeric(*str) || ft_isspace(*str)
-		|| *str == '+' || *str == '-')
-		str++;
-	while (oldpos < str && *str == ' ')
-		str++;
-	if (oldpos == str)
-		return (0);
-	if (*str != ':')
-		return (0);
-	str++;
-	while (*str == ' ')
-		str++;
-	if (ft_is_printable(*str))
-		return (1);
-	return (0);
+    oldpos = str;
+    while (ft_isspace(*str))
+        str++;
+    if (*str == '-' || *str == '+')
+        str++;
+    while (ft_is_numeric(*str))
+        str++;
+    while (oldpos < str && *str == ' ')
+        str++;
+    if (oldpos == str)
+        return (0);
+    if (*str != ':')
+        return (0);
+    str++;
+    while (*str == ' ')
+        str++;
+    if (ft_is_printable(*str))
+        return (1);
+    return (0);
 }
 
 char	*line_to_end(char *str)
