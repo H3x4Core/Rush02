@@ -66,6 +66,9 @@ char			**humanize(unsigned int *array, t_dict *dict_start);
 void			translate(char *filename, long long int value);
 char			*trim_line(char *str);
 int				check_value(char *str);
+int				get_value_from_entry(void);
+int				check_validity(char *str);
+void			translate(char *filename, long long int value);
 
 /******************* DEBUG ***********************/
 t_dict			*hardcoded_dict(void);
