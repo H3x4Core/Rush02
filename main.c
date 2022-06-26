@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 10:13:36 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/26 20:53:45 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 22:14:23 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int argc, char **argv)
 {
 	char			*filename;
+	char			*str;
 	long long int	value;
 
 	value = -1;
@@ -30,7 +31,8 @@ int	main(int argc, char **argv)
 		filename = forge_filename(argv[1]);
 	if (value >= 0)
 	{
-		if (check_validity(read_file(filename)))
+		str = read_file(filename);
+		if (check_validity(str))
 			translate(filename, value);
 		else
 			ft_putstr("Dict Error");
@@ -38,5 +40,7 @@ int	main(int argc, char **argv)
 	else
 		ft_putstr("Error");
 	ft_putstr("\n");
-	return (free_name(filename));
+	free(filename);
+	free(str);
+	return (0);
 }
