@@ -10,7 +10,7 @@
 - norme the fuck out of this
 - free them all 
 
-#MALLOC FREE LIST
+# MALLOC FREE LIST
 DONE : get_value_from_entry(void)
 in the same funciton.
 
