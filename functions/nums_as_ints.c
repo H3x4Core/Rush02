@@ -9,23 +9,19 @@
 /*   Updated: 2022/06/25 13:44:06 by mpouce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*
-#include <stdio.h>
-#include <stdlib.h>
-
-// Temp typedef for tests, to remove after
-typedef struct s_num
-{
-	int	h;
-	int	k;
-	int	m;
-	int	b;
-
-}	t_num;
-// End to typedef for tests, don't forget to remove*/
 
 #include "header.h"
 
+/* ************************************************************************** *
+Split the number to how is it humanly read
+
+Input:
+	- int nbr				: value from splitting the atoi (max 999)
+	- unsigned int *array	: array that will receive the split values
+	- int	*i				: pointer to the array index
+Output:
+	- None, value is directly written in the array
+* ************************************************************************** */
 void	split_number(int nbr, unsigned int *array, int *i)
 {
 	if (nbr / 100 > 0)
@@ -37,8 +33,12 @@ void	split_number(int nbr, unsigned int *array, int *i)
 	if (nbr % 100 > 19)
 	{
 		array[*i] = (nbr % 100) - (nbr % 10);
-		array[*i + 1] = nbr % 10;
-		*i += 2;
+		if (nbr % 10 != 0)
+		{
+			array[*i + 1] = nbr % 10;
+			*i += 1;
+		}
+		*i += 1;
 	}
 	else
 	{
@@ -50,6 +50,15 @@ void	split_number(int nbr, unsigned int *array, int *i)
 	}
 }
 
+/* ************************************************************************** *
+Split numbers in groups of three and add the correct separator
+
+Input:
+	- t_num	nums				: struct with numbers in groups
+	- unsigned int *int_array	: array that will receive values
+Output:
+	- unsigned int	*int_array	: array with values as read by humans
+* ************************************************************************** */
 unsigned int	*nums_as_ints(t_num nums, unsigned int *int_array)
 {
 	int	i;

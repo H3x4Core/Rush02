@@ -12,6 +12,15 @@
 
 #include "../include/header.h"
 
+/* ************************************************************************** *
+Create a 2d string array in the language of the dict
+
+Input:
+	- unsigned int	*array  : array containing the numbers to translate
+	- t_dict	*dict_start : pointer to the first dict in our chained list
+Output:
+	- char	*str			: 2d array containing string in selected language
+* ************************************************************************** */
 char	**humanize(unsigned int	*array, t_dict *dict_start)
 {
 	unsigned int	i;
@@ -32,67 +41,3 @@ char	**humanize(unsigned int	*array, t_dict *dict_start)
 	}
 	return (str_array);
 }
-/*
-int main(void)
-{
-	t_dict	elem1;
-	t_dict	elem2;
-	t_dict	elem3;
-	t_dict	elem4;
-	t_dict	elem5;
-	t_dict	elem6;
-	t_dict	elem7;
-	t_dict	elem8;
-	t_dict	*begin;
-
-	elem1.n = 10;
-	elem1.words = "ten";
-	elem1.next = &elem2;
-	
-	elem2.n = 1000;
-	elem2.words = "thousand";
-	elem2.next = &elem3;
-
-	elem3.n = 12;
-	elem3.words = "twelve";
-	elem3.next = &elem4;
-
-	elem4.n = 100;
-	elem4.words = "hundred";
-	elem4.next = &elem5;
-
-	elem5.n = 1;
-	elem5.words = "one";
-	elem5.next = &elem6;
-
-	elem6.n = 90;
-	elem6.words = "ninety";
-	elem6.next = &elem7;
-
-	elem7.n = 2;
-	elem7.words = "two";
-	elem7.next = &elem8;
-
-	elem8.n = 1000000;
-	elem8.words = "million";
-	elem8.next = 0;
-
-	begin = &elem1;
-	
-	int	*int_array = malloc(10);
-	int_array[0] = 1;
-	int_array[1] = 1000000;
-	int_array[2] = 12;
-	int_array[3] = 1000;
-	int_array[4] = 90;
-	int_array[5] = 2;
-	int_array[6] = 0;
-
-	char **str_array = humanize(int_array, begin);
-	for (int loop = 0; loop < 7; loop++)
-	{
-		printf("%d ", int_array[loop]);
-		printf("%s\n", str_array[loop]);
-	}
-	return (0);
-}*/
