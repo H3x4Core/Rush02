@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:49:09 by mpouce            #+#    #+#             */
-/*   Updated: 2022/06/26 21:54:33 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 22:02:30 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**humanize(unsigned int	*array, t_dict *dict_start)
 	char			**str_array;
 	t_dict			*dict_list;
 
-	str_array = malloc(sizeof(array));
+	str_array = malloc(1000);
 	i = 0;
 	while (array[i] != 0 || i == 0)
 	{
@@ -99,7 +99,7 @@ int	check_validity(char *str)
 	return (1);
 }
 
-int	get_value_from_entry(void)
+unsigned int	get_value_from_entry(void)
 {
 	char			*str;
 	unsigned int	r;
