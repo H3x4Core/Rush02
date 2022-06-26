@@ -17,6 +17,8 @@ int check_validity(char *str)
     int i;
     int new_line_flag;
 
+	if (!str)
+		return (0);
     new_line_flag = 1;
     i = 0;
     while(str[i])
