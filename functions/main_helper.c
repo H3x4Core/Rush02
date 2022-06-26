@@ -6,11 +6,27 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 19:30:54 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/26 19:34:31 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 19:48:51 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+char *forge_filename(char *file)
+{	
+	char	filename[300];
+	char	*forged;
+	int		len;
+	filename[0] = 0;
+	ft_strcat(filename, "./dictionaries/");
+	ft_strcat(filename, file);
+	len = ft_strlen(filename);
+	forged = malloc(sizeof(char) * len);
+	if (!forged)
+		return (0);
+	copy_buffer(filename, forged, len);
+	return (forged);
+}
 
 int	check_validity(char *str)
 {
@@ -37,17 +53,17 @@ int	check_validity(char *str)
 
 int	get_value_from_entry(void)
 {
-	int				ret;
-	char			*str;
-	unsigned int	r;
+	//int				ret;
+    char			*str;
+    unsigned int	r;
+    
+    str = malloc(10000);
 
-	str = malloc(11);
-	if (!str)
-		return (0);
-	ret = read(0, str, 30720);
-	r = ft_atoi(str) * check_value(str);
-	free(str);
-	return (r);
+    //ret = 
+	read(0, str, 10000);
+    r = ft_atoi(str);
+    free(str);
+    return (r);
 }
 
 void	translate(char *filename, long long int value)
