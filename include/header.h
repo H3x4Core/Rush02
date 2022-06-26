@@ -6,7 +6,11 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:25:14 by znichola          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/06/26 18:31:33 by matwinte         ###   ########.fr       */
+=======
+/*   Updated: 2022/06/26 18:24:16 by matwinte         ###   ########.fr       */
+>>>>>>> 1f7bf33 (cleaned main -> main_helper, updated header)
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +71,12 @@ void			translate(char *filename, long long int value);
 char			*trim_line(char *str);
 void			copy_buffer(char *buffer, char *str, int len);
 char			*ft_strcat(char *dest, char *src);
+<<<<<<< HEAD
+=======
+char			*forge_filename(char *file);
+int				check_validity(char *str);
+int				get_value_from_entry(void);
+>>>>>>> 1f7bf33 (cleaned main -> main_helper, updated header)
 
 /******************* DEBUG ***********************/
 t_dict			*hardcoded_dict(void);

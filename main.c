@@ -6,12 +6,13 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 10:13:36 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/26 16:11:49 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 18:25:08 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
+<<<<<<< HEAD
 int	check_validity(char *str)
 {
 	int	i;
@@ -45,6 +46,8 @@ int	get_value_from_entry(void)
 	return (ft_atoi(str));
 }
 
+=======
+>>>>>>> c67e0b0 (cleaned main -> main_helper, updated header)
 int	main(int argc, char **argv)
 {
 	char			*filename;
@@ -57,9 +60,9 @@ int	main(int argc, char **argv)
 	else
 		value = ft_atoi(argv[argc - 1]);
 	if (argc == 2 || argc == 1)
-		filename = "dictionaries/numbers.dict";
+		filename = forge_filename("numbers.dict");
 	else
-		filename = argv[1];
+		filename = forge_filename(argv[1]);
 	if (value >= 0)
 	{
 		if (check_validity(read_file(filename)))
@@ -72,6 +75,7 @@ int	main(int argc, char **argv)
 	ft_putstr("\n");
 	return (0);
 }
+<<<<<<< HEAD
 
 void	translate(char *filename, long long int value)
 {
@@ -96,3 +100,5 @@ void	translate(char *filename, long long int value)
 	}
 	free(int_array);
 }
+=======
+>>>>>>> c67e0b0 (cleaned main -> main_helper, updated header)
