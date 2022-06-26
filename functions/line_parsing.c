@@ -110,13 +110,3 @@ char	*line_to_words(char *str)
 	words[i] = '\0';
 	return (trim_line(words));
 }
-
-/*
-int main(int ac, char **av)
-{
-	printf("%d\n", line_to_num(av[1]));
-	printf("%s\n", line_to_words(av[1]));
-	printf("line valid:%d\n", line_is_valid(av[1]));
-	return 0;
-}
-*/

@@ -65,6 +65,7 @@ int				ft_strlen(char *str);
 char			**humanize(unsigned int *array, t_dict *dict_start);
 void			translate(char *filename, long long int value);
 char			*trim_line(char *str);
+int				check_value(char *str);
 
 /******************* DEBUG ***********************/
 t_dict			*hardcoded_dict(void);
