@@ -12,17 +12,14 @@
 
 #include "header.h"
 
-int    line_is_valid(char *str)
+int	line_is_valid(char *str)
 {
-	char    *oldpos;
+	char	*oldpos;
 
 	oldpos = str;
-	// if (ft_atoi(str) < 0)
-	// 	return (0);
-	while (ft_is_numeric(*str) || ft_isspace(*str) 
-	|| *str == '+' || *str == '-')
-			str++;
-	
+	while (ft_is_numeric(*str) || ft_isspace(*str)
+		|| *str == '+' || *str == '-')
+		str++;
 	while (oldpos < str && *str == ' ')
 		str++;
 	if (oldpos == str)
