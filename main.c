@@ -43,9 +43,7 @@ int	get_value_from_entry(void)
 
 	str = malloc(10000);
 	ret = read(0, str, 30720);
-	if (! (check_value(str)))
-		return (-1);
-	r = ft_atoi(str);
+	r = ft_atoi(str) * check_value(str);
 	free(str);
 	return (r);
 }
@@ -60,12 +58,12 @@ int	main(int argc, char **argv)
 	else if (argc == 1)
 		value = get_value_from_entry();
 	else
-		value = ft_atoi(argv[argc - 1]);
+		value = ft_atoi(argv[argc - 1]) * check_value(argv[argc - 1]);
 	if (argc == 2 || argc == 1)
 		filename = "dictionaries/numbers.dict";
 	else
 		filename = argv[1];
-	if (check_value(argv[argc - 1]) && value >= 0)
+	if (value >= 0)
 	{
 		if (check_validity(read_file(filename)))
 			translate(filename, value);
