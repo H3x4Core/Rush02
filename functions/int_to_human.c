@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:49:09 by mpouce            #+#    #+#             */
-/*   Updated: 2022/06/26 22:13:25 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 22:29:31 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,15 +98,17 @@ int	check_validity(char *str)
 	return (1);
 }
 
-unsigned int	get_value_from_entry(void)
+long long int	get_value_from_entry(void)
 {
 	char			*str;
 	unsigned int	r;
+	int	len;
 
 	str = malloc(4096);
 	if (!str)
 		return (0);
-	read(0, str, 4096);
+	len = read(0, str, 4096);
+	str[len - 1] = 0;
 	if (check_value(str) == -1)
 	{
 		free(str);

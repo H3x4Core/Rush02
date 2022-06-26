@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:25:14 by znichola          #+#    #+#             */
-/*   Updated: 2022/06/26 22:03:05 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/26 22:30:07 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char			**humanize(unsigned int *array, t_dict *dict_start);
 void			translate(char *filename, long long int value);
 char			*trim_line(char *str);
 int				check_value(char *str);
-unsigned int	get_value_from_entry(void);
+long long int	get_value_from_entry(void);
 int				check_validity(char *str);
 void			translate(char *filename, long long int value);
 int				check_validity(char *str);
